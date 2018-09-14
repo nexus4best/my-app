@@ -1,105 +1,51 @@
 <template>
-    <div class="container">
-        <div class="columns">
-            <div class="column">
-                <!-- <h1>DashBoard</h1>
-                <div class="field">
-                    <div class="control">
-                        <button type="submit" class="button is-link" @click="isLogout">Logout</button>
-                    </div>
-                </div> 
-                -->
-                <table class="table is-fullwidth" style="margin-top:5px;background-color:#EEEEEE">
-                    <tr>
-                        <td>S115 โลตัส มีนบุรี</td>
-                        <td>คุณธานี คำสิงห์</td>
-                        <td>เขต - คุณวรวรรณ</td>
-                        <td>CTS - คุณชวัท</td>                    
-                    </tr>
-                </table>                
-                <table class="table is-fullwidth is-bordered">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>เลขที่</th>
-                            <th>สถานะ</th>
-                            <th>แจ้งซ่อม</th>
-                            <th>เครื่อง</th>
-                            <th>วันที่สร้าง</th>
-                            <th>ผู้จัดทำ</th>                            
-                        </tr>
-                    </thead>
-                    <tr>
-                        <td>1</td>
-                        <td>123456</td>
-                        <td>แจ้งซ่อม</td>
-                        <td>คอมพิวเตอร์</td>
-                        <td>C01</td>
-                        <td>04/09/2018</td>
-                        <td>ธานี คำสิงห์</td>                        
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>123456</td>
-                        <td>แจ้งซ่อม</td>
-                        <td>คอมพิวเตอร์</td>
-                        <td>C01</td>
-                        <td>04/09/2018</td>
-                        <td>ธานี คำสิงห์</td>                        
-                    </tr> 
-                    <tr>
-                        <td>3</td>
-                        <td>123456</td>
-                        <td>แจ้งซ่อม</td>
-                        <td>คอมพิวเตอร์</td>
-                        <td>C01</td>
-                        <td>04/09/2018</td>
-                        <td>ธานี คำสิงห์</td>                        
-                    </tr> 
-                    <tr>
-                        <td>4</td>
-                        <td>123456</td>
-                        <td>แจ้งซ่อม</td>
-                        <td>คอมพิวเตอร์</td>
-                        <td>C01</td>
-                        <td>04/09/2018</td>
-                        <td>ธานี คำสิงห์</td>                        
-                    </tr>  
-                    <tr>
-                        <td>5</td>
-                        <td>123456</td>
-                        <td>แจ้งซ่อม</td>
-                        <td>คอมพิวเตอร์</td>
-                        <td>C01</td>
-                        <td>04/09/2018</td>
-                        <td>ธานี คำสิงห์</td>                        
-                    </tr>                                                                            
-                </table>
-            </div>
-        </div>        
+    <div>
+        <h1>DashBoard</h1>
     </div>
 </template>
 
 <script>
+//import { GET_BRANCH_ZONE } from '../graphql/index.js'
 export default {
     name: 'dashboard',
 
+    data () {
+        return {
+            //getBranch: []
+        }
+    },
+
+    // beforeCreate() {
+    //     this.$store.dispatch('fetchGetData');
+    // },    
+
     created () {
-        if(!localStorage.getItem('token')) {
+
+        if(!localStorage.getItem('UserBranch')) {
             this.$router.push({ name: 'login' })
         }
-    }, 
-    
-    methods: {
-        isLogout () {
-            localStorage.removeItem('UserID')
-            localStorage.removeItem('UserName')
-            localStorage.removeItem('UserBranch')
-            localStorage.removeItem('token')
-            this.$router.push({ name: 'login' })
-        }
-    }    
+
+        // BRANCH ZONE
+        // this.$apollo.query({
+        //     query: GET_BRANCH_ZONE,
+        //     variables: {
+        //         filterBrnCode: localStorage.getItem('UserBranch'),
+        //     },         
+        // })
+        // .then(data => {
+        //     this.getBranch = data.data.getBranch
+        //     console.log(data.data.getBranch);
+        // })
+
+    },     
 
 }
 
 </script>
+
+<style scoped>
+    table {
+        font-family: 'Designil Font', 'Helvetica', sans-serif;
+        font-size: 14px;
+    }
+</style>
